@@ -1,17 +1,29 @@
 import React from "react";
 
-const OrderId = async ({ searchParams }) => {
-  const { q } = searchParams;
+const OrderId = async ({ searchParams, params }) => {
+  // ERROR 1 FIX: Await BOTH params and searchParams
+  const { orderId } = await params;
+  const { q } = await searchParams;
+
   return (
     <div>
-      OrderId
-      <h2>the order id is that :{q}</h2>
-      <p className="mb-4">
-        Search Query:{" "}
-        <span className="font-bold text-blue-600">{searchParams.q}</span>
-      </p>
+      <h1>Order id page Dashboard</h1>
+      <p>Your orderid is :{orderId}</p>
+
+      <div>
+        <p>
+          Your Searhparams is {q}
+          {q ? (
+            <p>
+              Here is your desired search is{" "}
+              <strong className="text-green-500">{q}</strong>
+            </p>
+          ) : (
+            <p>Opps! something went wrong:(</p>
+          )}
+        </p>
+      </div>
     </div>
   );
 };
-
 export default OrderId;
