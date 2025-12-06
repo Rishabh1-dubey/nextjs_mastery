@@ -1,13 +1,18 @@
-import Link from "next/link";
-import React from "react";
+const OrderPage = async ({ searchParams }) => {
+  // 1. Get the query param
+  const { q } = await searchParams;
+  console.log(q);
 
-const OrderPage = () => {
   return (
-    <div>
-      OrderPage
-      <Link className="text-blue-400 underline" href="/order/123">
-        Go to order page
-      </Link>
+    <div className="p-10">
+      <h1 className="text-2xl font-bold mb-5">Order Dashboard</h1>
+      {q ? (
+        <p>
+          You are looking for: <strong>{q}</strong>
+        </p>
+      ) : (
+        <p>Please use the search bar or click a link to find an order.</p>
+      )}
     </div>
   );
 };
