@@ -5,9 +5,7 @@ import React from "react";
 const ThemeProvider = ({ children, ...props }: ThemeProviderProps) => {
   return (
     <div>
-      <NextThemesProvider {...props}>
-        ThemeProviderProvider: {children}
-      </NextThemesProvider>
+      <NextThemesProvider {...props}>{children}</NextThemesProvider>
     </div>
   );
 };
