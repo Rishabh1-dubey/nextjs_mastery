@@ -25,29 +25,6 @@ export default function Home() {
           <DropdownMenuItem>Subscription</DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
-      <h1 className="text-center mb-3">
-        hello everyone this is my new nextjs project
-      </h1>
-      <div className="">
-        <ol className="flex justify-around">
-          <Link href="/products">
-            <li>products</li>
-          </Link>
-
-          <Link href="/cart">
-            <li>cart</li>
-          </Link>
-          <Link href="/order">
-            <li>Order</li>
-          </Link>
-          <Link href="/checkout">
-            <li>checkout</li>
-          </Link>
-          <Link href="/account">
-            <li>account</li>
-          </Link>
-        </ol>
-      </div>
     </div>
   );
 }
