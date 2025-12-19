@@ -1,30 +1,27 @@
-import Link from "next/link";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-export default function Home() {
+import { Button } from "@/components/ui/button";
+import { auth, signOut } from "../../../auth";
+import ROUTES from "../../../constants/route";
+
+const Home = async () => {
+  const session = await auth();
+  console.log(session);
   return (
     <div>
       <h1 className="text-3xl text-center font-semibold mb-2 ">
         Assingment has to be done
       </h1>
-      <div className="border border-b-red-400"></div>
-      <DropdownMenu>
-        <DropdownMenuTrigger>Open</DropdownMenuTrigger>
-        <DropdownMenuContent>
-          <DropdownMenuLabel>My Account</DropdownMenuLabel>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem>Profile</DropdownMenuItem>
-          <DropdownMenuItem>Billing</DropdownMenuItem>
-          <DropdownMenuItem>Team</DropdownMenuItem>
-          <DropdownMenuItem>Subscription</DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
+      <form
+        className="px-10 pt-[100px]"
+        action={async () => {
+          "use server";
+          await signOut({ redirectTo: ROUTES.SIGN_IN });
+        }}
+      >
+        <Button className="bg-white text-black cursor-pointer" type="submit">
+          Logout
+        </Button>
+      </form>
     </div>
   );
-}
+};
+export default Home;
