@@ -16,6 +16,7 @@ const AuthLayout = ({ children }: { children: ReactNode }) => {
               {" "}
               to get your question answered
             </p>
+            <p></p>
           </div>
           <Image
             src="images/site-logo.svg"
