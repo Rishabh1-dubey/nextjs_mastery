@@ -1,24 +1,18 @@
 "use client";
 
+import { SheetClose } from "@/components/ui/sheet";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
-
-import { SheetClose } from "@/components/ui/sheet";
-
-import { cn } from "@/lib/utils";
 import { sidebarLinks } from "../../../constants";
 
-const NavLinks = ({
-  isMobileNav = false,
-  userId,
-}: {
-  isMobileNav?: boolean;
-  userId?: string;
-}) => {
+const NavLinks = ({ isMobileNav = false }: { isMobileNav?: boolean }) => {
   const pathname = usePathname();
-
+  const userId = 1;
+let name ="rishabh000";
+  //need to improve me logic once again
   return (
     <>
       {sidebarLinks.map((item) => {
