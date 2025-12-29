@@ -1,6 +1,4 @@
-import { Button } from "@/components/ui/button";
-import { auth, signOut } from "../../../auth";
-import ROUTES from "../../../constants/route";
+import { auth } from "../../../auth";
 
 const Home = async () => {
   const session = await auth();
