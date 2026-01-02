@@ -167,7 +167,7 @@
 }
 
 @utility h1-bold {
-  @apply text-[30px] font-bold leading-[42px] tracking-tighter;
+  @apply text-[27px] font-bold leading-[35px] tracking-tighter;
 }
 
 @utility h2-bold {
@@ -187,7 +187,7 @@
 }
 
 @utility base-medium {
-  @apply text-[18px] font-medium leading-[25.2px];
+  @apply text-[17px] font-medium leading-[25.2px];
 }
 
 @utility base-semibold {
@@ -195,7 +195,7 @@
 }
 
 @utility base-bold {
-  @apply text-[18px] font-bold leading-[140%];
+  @apply text-[17px] font-bold leading-[140%];
 }
 
 @utility paragraph-regular {
