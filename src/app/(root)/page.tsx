@@ -4,6 +4,7 @@ import Link from "next/link";
 import ROUTES from "../../../constants/route";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
+import LocalSearch from "@/components/search/LocalSearch";
 
 const Home = async () => {
   const session = await auth();
@@ -19,7 +20,9 @@ const Home = async () => {
           <Link href={ROUTES.ASK_QUESTION}>Ask a Question</Link>
         </Button>
       </section>
-      <section className="mt-11 relative text-center"></section>
+      <section className="mt-8 relative text-center">
+        <LocalSearch />
+      </section>
       HoemFIlter
       <div className="mt-10 w-full flex-col gap-6">
         <p>question 1</p>
