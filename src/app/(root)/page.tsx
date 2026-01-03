@@ -26,8 +26,7 @@ const Home = async () => {
       HoemFIlter
       <div className="mt-10 w-full flex-col gap-6">
         <p>question 1</p>
-        <p>question 1</p>
-        <p>question 1</p>
+        
         <p>question 1</p>
         <p>question 1</p>
       </div>
