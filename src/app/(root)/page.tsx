@@ -1,14 +1,48 @@
-import { Button } from "@/components/ui/button";
-import { auth } from "../../../auth";
 import Link from "next/link";
-import ROUTES from "../../../constants/route";
-import { Input } from "@/components/ui/input";
-import { Search } from "lucide-react";
 import LocalSearch from "@/components/search/LocalSearch";
+import { Button } from "@/components/ui/button";
+import ROUTES from "../../../constants/route";
 
-const Home = async () => {
-  const session = await auth();
-  console.log(session);
+const questions = [
+  {
+    _id: "1",
+    title: "How to learn React?",
+    description: "I want to learn React, can anyone help me?",
+    tags: [
+      { _id: "1", name: "React" },
+      { _id: "2", name: "JavaScript" },
+    ],
+    author: { _id: "1", name: "John Doe" },
+    upvotes: 10,
+    answers: 5,
+    views: 100,
+    createdAt: new Date(),
+  },
+  {
+    _id: "2",
+    title: "How to learn JavaScript?",
+    description: "I want to learn JavaScript, can anyone help me?",
+    tags: [
+      { _id: "1", name: "React" },
+      { _id: "2", name: "JavaScript" },
+    ],
+    author: { _id: "1", name: "John Doe" },
+    upvotes: 10,
+    answers: 5,
+    views: 100,
+    createdAt: new Date(),
+  },
+];
+interface SearchParams {
+  searchParams: Promise<{ [key: string]: string }>;
+}
+
+const Home = async ({ searchParams }: SearchParams) => {
+  const { query = "" } = await searchParams;
+
+  const filteredQuestions = questions.filter((question) =>
+    question.title.toLowerCase().includes(query?.toLowerCase())
+  );
   return (
     <>
       <section className="flex w-full flex-col-reverse justify-between gap-4 sm:flex-row sm:items-center">
@@ -21,16 +55,21 @@ const Home = async () => {
         </Button>
       </section>
       <section className="mt-8 relative text-center">
-        <LocalSearch />
+        <LocalSearch
+          route="/"
+          imgSrc="/icons/search.svg"
+          placeholder="Search questions"
+          otherClasses="flex-1"
+        />
       </section>
-      HoemFIlter
+
       <div className="mt-10 w-full flex-col gap-6">
-        <p>question 1</p>
-        
-        <p>question 1</p>
-        <p>question 1</p>
+        {filteredQuestions.map((question) => (
+          <h1 key={question._id}>{question.title}</h1>
+        ))}
       </div>
     </>
   );
 };
+
 export default Home;
